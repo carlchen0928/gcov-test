@@ -2,6 +2,9 @@
 #include "calc_mean.h"
 #include "calc_sum.h"
 #include "calc_mult.h"
+#include "template_sum.h"
+
+extern int mult(int, int);
 
 void inline say(int p)
 {
@@ -18,7 +21,6 @@ int main()
     v2 = 7.9;
 
     m = mean(v1, v2);
-
     printf("The mean of %3.2f and %3.2f is %3.2f\n", v1, v2, m);
     
     int a1, a2, s;
@@ -26,12 +28,13 @@ int main()
     a2 = 20;
 
     s = sum(a1, a2);
-
     printf("The sum of %d and %d is %d\n", a1, a2, s);
 
     s = mult(a1, a2);
-
     printf("The mult of %d and %d is %d\n", a1, a2, s);
+
+    s = t_sum<int>(a1, a2);
+    printf("The template sum of %d and %d is %d\n", a1, a2, s);
 
 
     say(1);
